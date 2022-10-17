@@ -7,7 +7,7 @@ WORKDIR /opt/app-root/src
 COPY package*.json ./
 
 RUN npm ci
-RUN npm i @vue/cli-service
+RUN npm i -g @vue/cli-service
 
 COPY public public 
 COPY src src 
