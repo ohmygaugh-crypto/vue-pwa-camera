@@ -6,7 +6,11 @@ WORKDIR /opt/app-root/src
 
 COPY package*.json ./
 
-RUN NODE_ENV=development npm ci
+ARG ENV=development
+ENV NODE_ENV $ENV
+ENV NODE_VERSION $NODEJS_VERSION
+
+RUN npm ci
 RUN npm i -g @vue/cli-service
 
 COPY public public 
@@ -32,7 +36,4 @@ ENV PORT=8080
 LABEL com.example.source="https://github.com/ohmygaugh-crypto/vue-pwa-camera"
 LABEL com.example.version="1.0"
 
-ARG ENV=production
-ENV NODE_ENV $ENV
-ENV NODE_VERSION $NODEJS_VERSION
 CMD npm run $NODE_ENV
