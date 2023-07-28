@@ -19,6 +19,7 @@
       <button class="button photo-button" @click="TakePhoto">
         <b-icon pack="fas" icon="camera" />
       </button>
+      <button class="button back-button">back-button</button>
     </div>
     <photos-gallery class="gallery" :photos="photos" />
   </div>
@@ -149,6 +150,10 @@ export default {
 .photo-button {
   font-size: 4vh;
   color: black;
+}
+.back-button {
+  font-size: 4vh;
+  color: #000;
 }
 .gallery {
   grid-column: left / right;
